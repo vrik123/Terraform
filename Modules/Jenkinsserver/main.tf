@@ -1,4 +1,4 @@
-resource "aws_instance" "web" {
+resource "aws_instance" "jenkins" {
   ami           = "${var.ami_id}"
   instance_type = "t2.micro"
   key_name = "${var.keyname}"

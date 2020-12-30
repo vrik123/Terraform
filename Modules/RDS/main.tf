@@ -13,7 +13,7 @@ resource "aws_db_instance" "mysql" {
 resource "aws_security_group" "mysql_sg" {
   name        = "mysql"
   description = "Allow mysql inbound traffic"
-  vpc_id      = "vpc-03d92f7e"
+  vpc_id      = "vpc-03d"
   ingress {
     from_port   = 22
     to_port     = 22

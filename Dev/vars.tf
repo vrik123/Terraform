@@ -2,13 +2,13 @@ variable "keyname"{
 default ="test"
 }
 variable "vpcid"{
-default ="vpc-03d9"
+default =""
 }
 variable "ami_id"{
-default="ami-0739f8"
+default=""
 }
 variable "web_ami_id"{
-default="ami-0885b1"
+default=""
 }
 
 variable "tar_ami_id"{

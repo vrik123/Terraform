@@ -1,14 +1,13 @@
-#!groovy
-import groovy.txt.*
-import groovy.txt.markup.*
-node{
-	environment {
-    	 PATH = "${PATH}:${getTerraformPath()}"
-  		}
-	stage('Test'){
-		sh "echo ${PATH}"
-		}
-}
+pipeline{
+  agent any
+  environment {
+    PATH = "${PATH}:${getTerraformPath()}"
+  }
+    stage('terraform init and apply - dev'){
+      steps{
+        sh "terraform init"
+      }
+    }
 def getTerraformPath(){
   def tfHome = tool name: 'terraform-12', type: 'org.jenkinsci.plugins.terraform.TerraformInstallation'
   return tfHome

@@ -1,17 +1,20 @@
 pipeline{
-  agent any
-  environment {
-    PATH = "${PATH}:${getTerraformPath()}"
-  }
-  stages{
-    stage('terraform init and apply - dev'){
-      steps{
-        sh "terraform init"
-      }
-    }
-    }
-def getTerraformPath(){
-  def tfHome = tool name: 'terraform-12', type: 'org.jenkinsci.plugins.terraform.TerraformInstallation'
-  return tfHome
+	agent any
+	environment {
+	  PATH = "${PATH}:${getTerrPath()}"
+	  }
+	stages{
+	stage ('Terraform-Init'){
+	    steps{
+	     dir("${env.WORKSPACE}/Test"){
+               sh "pwd"
+	      sh "terraform init"
+	         }
+	    }
+	}
 }
+}
+def getTerrPath(){
+def tfHome = tool name: 'Terraform-12', type: 'terraform'
+return tfHome
 }

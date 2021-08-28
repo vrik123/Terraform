@@ -3,10 +3,10 @@ import groovy.txt.*
 import groovy.txt.markup.*
 node{
 	stage('Test'){
-		sh "${tfHome}/terraform init"
+		def tfHome = tool name: 'Terraorm-12', type: 'terraform'
+		sh 'terraform init'
 		}
 }
-def getTerraformPath(){
-  def tfHome = tool name: 'Terraorm-12', type: 'terraform'
-  return tfHome
-}
+
+  
+ 

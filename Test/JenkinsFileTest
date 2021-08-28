@@ -2,15 +2,12 @@
 import groovy.txt.*
 import groovy.txt.markup.*
 node{
-	environment {
-   	 PATH = "${PATH}:${getTerraformPath()}"
- 	 }
+	def tfHome = tool name: 'Terraorm-12', type: 'terraform'
 	stage('Test'){
 		dir('Terraform'){
 			git branch: 'main', credentialsId: 'git-creds', url: 'https://github.com/vrik123/Terraform.git'
 			echo "WORKSPACE ${env.WORKSPACE}"
- 	 		def tfHome = tool name: 'Terraorm-12', type: 'terraform'
-			sh "{$tfHome}/terraform init"
+ 	 		sh "{$tfHome}/terraform init"
   	
 		}
 	 }

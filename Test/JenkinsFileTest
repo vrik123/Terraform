@@ -4,6 +4,7 @@ import groovy.txt.markup.*
 node{
 	stage('Test'){
 		def tfHome = tool name: 'Terraorm-12', type: 'terraform'
+		echo '${tfHome}'
 		sh 'terraform init'
 		}
 }

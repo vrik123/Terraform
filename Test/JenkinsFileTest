@@ -9,7 +9,7 @@ pipeline{
 	     dir("${env.WORKSPACE}/Test"){
                sh "pwd"
 	      sh "terraform init"
-	      sh "ls"
+	      sh "terraform apply -var-file=dev.tfvars -auto-approve"
 	      
 	         }
 	    }

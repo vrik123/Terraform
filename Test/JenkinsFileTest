@@ -9,8 +9,8 @@ pipeline{
 	     dir("${env.WORKSPACE}/Test"){
                sh "pwd"
 	      sh "terraform init"
-	      sh "cd /Test"
-	      sh "terraform apply --auto-approve"
+	      sh "ls"
+	      
 	         }
 	    }
 	}

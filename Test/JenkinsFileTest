@@ -1,1 +1,9 @@
-
+#!groovy
+import groovy.txt.*
+import groovy.txt.markup.*
+node{
+	stage('Test'){
+	 sh """
+	 echo Hello
+	 """}
+}

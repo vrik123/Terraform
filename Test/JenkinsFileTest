@@ -6,7 +6,7 @@ node{
     	 PATH = "${PATH}:${getTerraformPath()}"
   		}
 	stage('Test'){
-	  sh "terraform init"
+	  sh "echo PATH"
 		}
 }
 def getTerraformPath(){

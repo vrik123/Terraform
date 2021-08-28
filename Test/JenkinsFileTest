@@ -2,11 +2,8 @@
 import groovy.txt.*
 import groovy.txt.markup.*
 node{
-	environment {
-    	 PATH = "${PATH}:${getTerraformPath()}"
-  		}
 	stage('Test'){
-		sh "terraform init"
+		sh "${tfHome}/terraform init"
 		}
 }
 def getTerraformPath(){

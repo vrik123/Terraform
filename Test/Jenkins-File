@@ -1,5 +1,8 @@
 pipeline{
 	agent any
+	environment {
+	  PATH = "${PATH}:${getTerrPath()}"
+	  }
 	stages{
 	  stage ('Terraform-Init'){
 	    steps{
@@ -7,4 +10,8 @@ pipeline{
 	    }
 	  }
 	}
+}
+def getTerrPath(){
+def tfHome = tool name: 'Terraform-12', type: 'terraform'
+return tfHome
 }

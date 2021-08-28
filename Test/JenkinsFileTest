@@ -1,20 +1,15 @@
-pipeline{
-	agent any
+#!groovy
+import groovy.txt.*
+import groovy.txt.markup.*
+node{
 	environment {
-	  PATH = "${PATH}:${getTerrPath()}"
-	  }
-	stages{
-	stage ('Terraform-Init'){
-	    steps{
-	     dir("${env.WORKSPACE}/Test"){
-               sh "pwd"
-	      sh "terraform init"
-	         }
-	    }
-	}
+    	 PATH = "${PATH}:${getTerraformPath()}"
+  		}
+	stage('Test'){
+		sh "terraform initi"
+		}
 }
-}
-def getTerrPath(){
-def tfHome = tool name: 'Terraorm-12', type: 'terraform'
-return tfHome
+def getTerraformPath(){
+  def tfHome = tool name: 'Terraorm-12', type: 'terraform'
+  return tfHome
 }

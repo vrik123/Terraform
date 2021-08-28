@@ -6,12 +6,7 @@ node{
     	 PATH = "${PATH}:${getTerraformPath()}"
   		}
 	stage('Test'){
-		deleteDir()
-		dir('Terraform'){
-			git branch: 'main', credentialsId: 'git-creds', url: 'https://github.com/vrik123/Terraform.git'
-			echo "WORKSPACE ${env.WORKSPACE}"
-			sh "terraform init"
-  	
+	  sh "terraform init"
 		}
 	 }
 

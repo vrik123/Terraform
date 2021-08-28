@@ -4,6 +4,8 @@ import groovy.txt.markup.*
 node{
 	stage('Test'){
 		dir('Terraform'){
+			git branch: 'main', credentialsId: 'git-creds', url: 'https://github.com/vrik123/Terraform.git'
+			echo "WORKSPACE ${env.WORKSPACE}"
 		}
 	 }
 }

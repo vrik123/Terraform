@@ -6,19 +6,13 @@ pipeline{
 	stages{
 	stage ('Terraform-Init'){
 	    steps{
-	      sh returnStatus: true, script: 'terraform workspace new dev'
+	     dir("${env.WORKSPACE}/Test"){
+               sh "pwd"
 	      sh "terraform init"
 	         }
 	    }
-	   stage ('Terraform-Plan'){
-	   steps{
-	      dir("${env.WORKSPACE}/Test"){
-               sh "pwd"
-	      sh "terraform apply  -var-file=dev.tfvars"
-	        }
-		}
-	   }
 	}
+}
 }
 def getTerrPath(){
 def tfHome = tool name: 'Terraform-12', type: 'terraform'

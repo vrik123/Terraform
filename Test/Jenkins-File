@@ -7,13 +7,13 @@ pipeline{
 	  stage ('Terraform-Init'){
 	    steps{
 	      sh "terraform init"
+	         }
 	    }
-	  }
-	  stage ('Terraform-Init'){
-	    steps{
+	   stage ('Terraform-Init'){
+	   steps{
 	      sh "terraform plan"
-	    }
-	  }
+	        }
+	   }
 	}
 }
 def getTerrPath(){

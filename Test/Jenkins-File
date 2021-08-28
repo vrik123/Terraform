@@ -4,6 +4,9 @@ pipeline{
 	  PATH = "${PATH}:${getTerrPath()}"
 	  }
 	stages{
+	 dir("${env.WORKSPACE}/Test"){
+               sh "pwd"
+               }
 	  stage ('Terraform-Init'){
 	    steps{
 	      sh returnStatus: true, script: 'terraform workspace new dev'

@@ -4,10 +4,7 @@ pipeline{
 	  PATH = "${PATH}:${getTerrPath()}"
 	  }
 	stages{
-	 dir("${env.WORKSPACE}/Test"){
-               sh "pwd"
-               }
-	  stage ('Terraform-Init'){
+	stage ('Terraform-Init'){
 	    steps{
 	      sh returnStatus: true, script: 'terraform workspace new dev'
 	      sh "terraform init"
@@ -15,8 +12,11 @@ pipeline{
 	    }
 	   stage ('Terraform-Plan'){
 	   steps{
+	      dir("${env.WORKSPACE}/Test"){
+               sh "pwd"
 	      sh "terraform apply  -var-file=dev.tfvars"
 	        }
+		}
 	   }
 	}
 }

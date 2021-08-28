@@ -9,11 +9,9 @@ node{
 		dir('Terraform'){
 			git branch: 'main', credentialsId: 'git-creds', url: 'https://github.com/vrik123/Terraform.git'
 			echo "WORKSPACE ${env.WORKSPACE}"
-			sh "terraform init"
-	def getTerraformPath(){
- 	 def tfHome = tool name: 'Terraorm-12', type: 'terraform'
-  	return tfHome
-}
+ 	 		def tfHome = tool name: 'Terraorm-12', type: 'terraform'
+			sh "{$tfHome}/terraform init"
+  	
 		}
 	 }
 
